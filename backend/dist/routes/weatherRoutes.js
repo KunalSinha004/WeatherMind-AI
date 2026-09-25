@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const weatherController_1 = require("../controllers/weatherController");
+const router = (0, express_1.Router)();
+router.get('/current', weatherController_1.getCurrentWeather);
+router.get('/hourly', weatherController_1.getHourlyForecast);
+router.get('/forecast', weatherController_1.getDailyForecast);
+router.get('/search', weatherController_1.searchCities);
+router.get('/historical', weatherController_1.getHistoricalAnalytics);
+router.get('/compare', weatherController_1.compareCities);
+exports.default = router;

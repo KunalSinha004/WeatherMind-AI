@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const predictionController_1 = require("../controllers/predictionController");
+const router = (0, express_1.Router)();
+router.post('/predict', predictionController_1.getPrediction);
+router.post('/temperature', (req, res) => { req.body.metric = 'temperature'; (0, predictionController_1.getPrediction)(req, res); });
+router.post('/rainfall', (req, res) => { req.body.metric = 'rainfall'; (0, predictionController_1.getPrediction)(req, res); });
+router.post('/humidity', (req, res) => { req.body.metric = 'humidity'; (0, predictionController_1.getPrediction)(req, res); });
+router.post('/wind', (req, res) => { req.body.metric = 'wind'; (0, predictionController_1.getPrediction)(req, res); });
+router.get('/anomaly', predictionController_1.getAnomalyDetection);
+router.get('/metrics', predictionController_1.getModelEvaluationMetrics);
+exports.default = router;
